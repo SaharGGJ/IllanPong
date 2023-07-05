@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Top Border"))
             touchingTop= true;
-        if (collision.gameObject.tag.Equals("Bottom Border"));
+        if (collision.gameObject.tag.Equals("Bottom Border"))
             touchingBottom= true;
     }
     private void OnCollisionExit2D(Collision2D collision)
