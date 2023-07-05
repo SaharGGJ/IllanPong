@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Wall
   - Border
+  - Ball
+  - Top Border
+  - Bottom Border
   layers:
   - Default
   - TransparentFX
