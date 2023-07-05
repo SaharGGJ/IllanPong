@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerOneBoard;
+    [SerializeField] private AudioSource playerOneAudioSource;
     private bool touchingTop = false;
     private bool touchingBottom = false;
     // Update is called once per frame
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
             touchingTop= true;
         if (collision.gameObject.tag.Equals("Bottom Border"))
             touchingBottom= true;
+        if (collision.gameObject.tag.Equals("Ball"))
+            playerOneAudioSource.Play();
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
