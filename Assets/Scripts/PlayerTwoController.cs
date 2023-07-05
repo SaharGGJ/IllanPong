@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerTwoController : MonoBehaviour
+{
+    [SerializeField] private GameObject playerTwoBoard;
+    [SerializeField] private AudioSource playerTwoAudioSource;
+    private bool touchingTop = false;
+    private bool touchingBottom = false;
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W) && !touchingTop)
+        {
+            playerTwoBoard.transform.Translate(Vector3.up * Time.deltaTime);
+        }
+        else
+        if (Input.GetKey(KeyCode.S) && !touchingBottom)
+        {
+            playerTwoBoard.transform.Translate(Vector3.down * Time.deltaTime);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Top Border"))
+            touchingTop = true;
+        if (collision.gameObject.tag.Equals("Bottom Border"))
+        touchingBottom = true;
+        if(collision.gameObject.tag.Equals("Ball"))
+            playerTwoAudioSource.Play();
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        touchingBottom = false;
+        touchingTop = false;
+    }
+}
