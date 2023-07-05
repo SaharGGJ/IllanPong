@@ -24,10 +24,16 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag.Equals("Top Border"))
-            touchingTop= true;
+        if (collision.gameObject.tag.Equals("Top Border"))
+        {
+            touchingTop = true;
+            Debug.Log("Hitting top!");
+        }
         if (collision.gameObject.tag.Equals("Bottom Border"))
-            touchingBottom= true;
+        {
+            touchingBottom = true;
+            Debug.Log("Hitting Bottom!");
+        }
         if (collision.gameObject.tag.Equals("Ball"))
             playerOneAudioSource.Play();
     }
