@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerOneBoard;
     [SerializeField] private AudioSource playerOneAudioSource;
+    public float speedMod = 1;
     private bool touchingTop = false;
     private bool touchingBottom = false;
     // Update is called once per frame
@@ -13,12 +14,12 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.UpArrow)&&!touchingTop)
         {
-            playerOneBoard.transform.Translate(Vector3.up * Time.deltaTime);
+            playerOneBoard.transform.Translate(Vector3.up * Time.deltaTime*speedMod);
         }
         else
         if (Input.GetKey(KeyCode.DownArrow)&&!touchingBottom)
         {
-            playerOneBoard.transform.Translate(Vector3.down * Time.deltaTime);
+            playerOneBoard.transform.Translate(Vector3.down * Time.deltaTime * speedMod);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
