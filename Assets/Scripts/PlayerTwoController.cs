@@ -34,8 +34,10 @@ public class PlayerTwoController : MonoBehaviour
             touchingBottom = true;
             Debug.Log("Hitting Bottom!");
         }
-        if(collision.gameObject.tag.Equals("Ball"))
+        if (collision.gameObject.tag.Equals("Ball"))
+        {
             playerTwoAudioSource.Play();
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
